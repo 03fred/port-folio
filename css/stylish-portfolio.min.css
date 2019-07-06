@@ -10,6 +10,13 @@ html {
     height: 100%
 }
 
+@media (min-width:992px) {
+    .modal-content {
+        width: 800px !important;
+        right: 22%;
+    }
+}
+
 body {
     font-family: 'Source Sans Pro'
 }
@@ -100,12 +107,23 @@ h6 {
 }
 
 .home {
-    background: linear-gradient(90deg, rgba(255, 255, 255, .1) 0, rgba(255, 255, 255, .1) 100%), url(../img/bg-masthead.jpg);
+    background: linear-gradient(90deg, rgba(255, 255, 255, .1) 0, rgba(255, 255, 255, .1) 100%), url(../img/bg-callout.jpg);
+    ;
 }
 
 .controle-arquivos {
     background: linear-gradient(90deg, rgba(255, 255, 255, .1) 0, rgba(255, 255, 255, .1) 100%), url(../img/fundo.jpg);
     color: #fff;
+}
+
+.app-do-prefeito {
+    background: linear-gradient(90deg, rgba(255, 255, 255, .1) 0, rgba(255, 255, 255, .1) 100%), url(../img/login.jpg);
+    color: yellow;
+}
+
+.fifo-system {
+    background: linear-gradient(90deg, rgba(255, 255, 255, .1) 0, rgba(255, 255, 255, .1) 100%), url(../img/fifologo.jpg);
+    color: #09192A;
 }
 
 #about {
@@ -114,6 +132,10 @@ h6 {
 
 #texto {
     text-align: justify;
+}
+
+.bg-custom {
+    background-color: #09192A;
 }
 
 .masthead h1 {
