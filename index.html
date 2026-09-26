@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Portfólio de Frederico da Silva, desenvolvedor de software com projetos web para gestão pública, integração de sistemas e automação de processos.">
+    <meta name="author" content="Frederico da Silva">
 
-    <title>Projetos Implantados</title>
+    <title>Frederico da Silva | Desenvolvedor de Software</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,6 +20,7 @@
 
     <!-- Custom CSS -->
     <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+    <link href="css/portfolio-home.css" rel="stylesheet">
 
 </head>
 
@@ -49,17 +50,23 @@
             <li class="sidebar-nav-item">
                 <a class="js-scroll-trigger" href="dsfnet.html">DSFNET - RPS/NFSE</a>
             </li>
+            <li class="sidebar-nav-item">
+                <a class="js-scroll-trigger" href="bpa-sus.html">Conversor BPA SUS</a>
+            </li>
         </ul>
     </nav>
 
     <!-- Header -->
     <header class="masthead home d-flex">
-        <div class="container text-center my-auto">
-            <h1 class="mb-1">Projetos</h1>
-            <h3 class="mb-5">
-                <em>Frederico Da Silva</em>
-            </h3>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#portfolio">Clique aqui para saber mais!</a>
+        <div class="container hero-content my-auto">
+            <p class="hero-eyebrow">Desenvolvedor de software <span>·</span> Brasil</p>
+            <h1><span>Frederico</span><span>da Silva</span></h1>
+            <p class="hero-description">Desenvolvo soluções web para gestão pública, integração de sistemas e automação de processos.</p>
+            <div class="hero-actions">
+                <a class="btn btn-primary btn-xl js-scroll-trigger" href="#portfolio">Explorar projetos <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+                <a class="hero-social" href="https://br.linkedin.com/in/03fred" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Frederico da Silva"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                <a class="hero-social" href="https://github.com/03fred/" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Frederico da Silva"><i class="fab fa-github" aria-hidden="true"></i></a>
+            </div>
         </div>
         <div class="overlay"></div>
     </header>
@@ -68,31 +75,72 @@
     <section class="content-section" id="portfolio">
         <div class="container">
             <div class="content-section-heading text-center">
-                <h3 class="text-secondary mb-0">Portfolio</h3>
-                <h2 class="mb-5">Projetos Recentes</h2>
+                <h3 class="text-secondary mb-0">Trabalho selecionado</h3>
+                <h2 class="mb-3">Projetos implantados</h2>
+                <p class="portfolio-intro">Sistemas que ajudam equipes e serviços públicos a trabalhar melhor.</p>
             </div>
-            <div class="row no-gutters">
-                <div class="col-lg-6">
-                    <a class="portfolio-item" href="controle-arquivos.html">
-
-                        <img class="img-fluid" src="img/gerenciadorArquivos.png" alt="">
+            <div class="row project-grid">
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <a class="project-card" href="controle-arquivos.html">
+                        <span class="project-visual"><img src="img/gerenciadorArquivos.png" alt="Tela do sistema de gerenciamento de arquivos municipais" loading="lazy"></span>
+                        <span class="project-copy">
+                            <span class="project-category">Gestão municipal</span>
+                            <span class="project-title">Controle de Arquivos</span>
+                            <span class="project-description">Organização, consulta e gestão de documentos municipais.</span>
+                            <span class="project-link">Ver projeto <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        </span>
                     </a>
                 </div>
-                <div class="col-lg-6">
-                    <a class="portfolio-item" href="app-do-prefeito.html">
-
-                        <img class="img-fluid" src="img/appPrefeito.png" alt="">
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <a class="project-card" href="app-do-prefeito.html">
+                        <span class="project-visual"><img src="img/appPrefeito.png" alt="Tela da plataforma App do Prefeito" loading="lazy"></span>
+                        <span class="project-copy">
+                            <span class="project-category">Plataforma web</span>
+                            <span class="project-title">App do Prefeito</span>
+                            <span class="project-description">Plataforma municipal com notícias e consulta a dados públicos.</span>
+                            <span class="project-link">Ver projeto <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        </span>
                     </a>
                 </div>
-                <div class="col-lg-6">
-                    <a class="portfolio-item" href="fifo-system.html">
-
-                        <img class="img-fluid" src="img/fifosystem.png" alt="">
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <a class="project-card" href="fifo-system.html">
+                        <span class="project-visual"><img src="img/fifosystem.png" alt="Tela do sistema de gestão de creches F.I.F.O." loading="lazy"></span>
+                        <span class="project-copy">
+                            <span class="project-category">Educação</span>
+                            <span class="project-title">F.I.F.O. System</span>
+                            <span class="project-description">Gestão de creches municipais e instituições conveniadas.</span>
+                            <span class="project-link">Ver projeto <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        </span>
                     </a>
                 </div>
-                <div class="col-lg-6">
-                    <a class="portfolio-item" href="dsfnet.html">
-                        <img class="img-fluid" src="img/dsfnet.png" alt="">
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <a class="project-card" href="dsfnet.html">
+                        <span class="project-visual"><img src="img/dsfnet.png" alt="Tela da integração de emissão de RPS e NFS-e com a DSFNET" loading="lazy"></span>
+                        <span class="project-copy">
+                            <span class="project-category">API e integração</span>
+                            <span class="project-title">Integração DSFNET</span>
+                            <span class="project-description">API e dashboard para emissão de RPS e NFS-e.</span>
+                            <span class="project-link">Ver projeto <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        </span>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <a class="project-card" href="bpa-sus.html">
+                        <span class="project-visual project-architecture-preview" role="img" aria-label="Fluxo de conversão de planilhas XLSX em arquivos BPA para o SUS">
+                            <span class="preview-node"><span>XLSX</span><small>Planilha</small></span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            <span class="preview-node"><span>AWS</span><small>Pipeline</small></span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            <span class="preview-node"><span>PHP</span><small>Conversão</small></span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            <span class="preview-node preview-node-output"><span>BPA</span><small>Arquivo BPA</small></span>
+                        </span>
+                        <span class="project-copy">
+                            <span class="project-category">AWS · Processamento assíncrono</span>
+                            <span class="project-title">Conversor BPA para o SUS</span>
+                            <span class="project-description">Pipeline seguro para converter planilhas XLSX em arquivos BPA para o SUS.</span>
+                            <span class="project-link">Ver projeto <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        </span>
                     </a>
                 </div>
             </div>
@@ -104,22 +152,17 @@
         <div class="container">
             <ul class="list-inline mb-5">
                 <li class="list-inline-item">
-                    <a class="social-link rounded-circle text-white mr-3" href="#">
-                        <i class="icon-social-facebook"></i>
+                    <a class="social-link rounded-circle text-white mr-3" target="_blank" rel="noopener noreferrer" href="https://br.linkedin.com/in/03fred" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a class="social-link rounded-circle text-white mr-3" target="blank" href="https://br.linkedin.com/in/03fred">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="social-link rounded-circle text-white" href="https://github.com/03fred/" target="blank">
-                        <i class="icon-social-github"></i>
+                    <a class="social-link rounded-circle text-white" href="https://github.com/03fred/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i>
                     </a>
                 </li>
             </ul>
-            <p class="text-muted small mb-0">Copyright &copy; Your Website 2019</p>
+            <p class="text-muted small mb-0">&copy; 2026 Frederico da Silva</p>
         </div>
     </footer>
 

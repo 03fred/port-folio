@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Pipeline assíncrono em AWS para converter planilhas XLSX em arquivos BPA para o SUS.">
+    <meta name="author" content="Frederico da Silva">
+    <title>Conversor BPA para o SUS | Frederico da Silva</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="css/stylish-portfolio.min.css" rel="stylesheet">
+    <link href="css/bpa-project.css" rel="stylesheet">
+</head>
+
+<body id="page-top" class="bpa-page">
+    <a class="menu-toggle rounded" href="#" aria-label="Abrir menu">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+    </a>
+    <nav id="sidebar-wrapper" aria-label="Navegação dos projetos">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand"><a class="js-scroll-trigger" href="#page-top">Fechar</a></li>
+            <li class="sidebar-nav-item"><a href="index.html">Página Inicial</a></li>
+            <li class="sidebar-nav-item"><a href="controle-arquivos.html">Controle Arquivos</a></li>
+            <li class="sidebar-nav-item"><a href="app-do-prefeito.html">App do Prefeito</a></li>
+            <li class="sidebar-nav-item"><a href="fifo-system.html">F.I.F.O. System</a></li>
+            <li class="sidebar-nav-item"><a href="dsfnet.html">DSFNET - RPS/NFSE</a></li>
+            <li class="sidebar-nav-item"><a href="bpa-sus.html" aria-current="page">Conversor BPA SUS</a></li>
+        </ul>
+    </nav>
+
+    <header class="bpa-hero">
+        <div class="container bpa-container">
+            <a class="bpa-back-link" href="index.html"><i class="fas fa-arrow-left" aria-hidden="true"></i> Todos os projetos</a>
+            <p class="bpa-eyebrow">AWS <span>·</span> Pipeline de arquivos <span>·</span> PHP</p>
+            <h1>Conversor BPA<br>para o SUS</h1>
+            <p class="bpa-lead">Uma arquitetura orientada a eventos transforma planilhas XLSX em arquivos BPA para processamento no sistema do SUS.</p>
+            <a class="bpa-hero-link" href="#arquitetura">Ver arquitetura <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+        </div>
+        <div class="bpa-hero-index" aria-hidden="true">01 / 05</div>
+    </header>
+
+    <main>
+        <section class="bpa-overview" aria-labelledby="visao-geral">
+            <div class="container bpa-container bpa-overview-grid">
+                <div>
+                    <p class="bpa-section-label">O projeto</p>
+                    <h2 id="visao-geral">Da planilha ao BPA, com processamento em segundo plano.</h2>
+                </div>
+                <div class="bpa-overview-copy">
+                    <p>O cliente envia uma planilha Excel, acompanha o processamento e obtém o arquivo BPA convertido. O fluxo usa serviços gerenciados da AWS para separar autenticação, transferência de arquivos e processamento.</p>
+                    <ul class="bpa-tags" aria-label="Tecnologias e padrões">
+                        <li>AWS</li><li>PHP</li><li>Amazon S3</li><li>JWT</li><li>Event-driven</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="bpa-architecture" id="arquitetura" aria-labelledby="arquitetura-titulo">
+            <div class="container bpa-container">
+                <div class="bpa-section-heading">
+                    <div>
+                        <p class="bpa-section-label">Fluxo de dados</p>
+                        <h2 id="arquitetura-titulo">Arquitetura de conversão</h2>
+                    </div>
+                    <p>O upload inicia um pipeline assíncrono. O cliente consulta o status enquanto o arquivo é processado.</p>
+                </div>
+
+                <figure class="bpa-architecture-figure">
+                    <img src="img/bpa-architecture.svg" alt="Diagrama da arquitetura: autenticação Cognito e JWT, upload por URL pré-assinada, armazenamento no S3, processamento PHP acionado por evento, consulta de status e download do arquivo BPA.">
+                    <figcaption>Fluxo de autenticação, upload, processamento assíncrono e download do BPA.</figcaption>
+                </figure>
+
+                <ol class="bpa-flow">
+                    <li class="bpa-flow-step">
+                        <span class="bpa-step-number">01</span>
+                        <span class="bpa-step-icon"><i class="fas fa-user-lock" aria-hidden="true"></i></span>
+                        <h3>Autenticação</h3>
+                        <p>Amazon Cognito autentica o usuário e emite tokens JWT.</p>
+                        <span class="bpa-step-service">Cognito · JWT</span>
+                    </li>
+                    <li class="bpa-flow-step">
+                        <span class="bpa-step-number">02</span>
+                        <span class="bpa-step-icon"><i class="fas fa-key" aria-hidden="true"></i></span>
+                        <h3>Upload seguro</h3>
+                        <p>API Gateway valida a chamada; uma Lambda gera a URL pré-assinada.</p>
+                        <span class="bpa-step-service">API Gateway · Lambda</span>
+                    </li>
+                    <li class="bpa-flow-step">
+                        <span class="bpa-step-number">03</span>
+                        <span class="bpa-step-icon"><i class="fas fa-file-excel" aria-hidden="true"></i></span>
+                        <h3>Entrada XLSX</h3>
+                        <p>O cliente envia a planilha diretamente ao bucket de entrada.</p>
+                        <span class="bpa-step-service">Amazon S3 · Input</span>
+                    </li>
+                    <li class="bpa-flow-step">
+                        <span class="bpa-step-number">04</span>
+                        <span class="bpa-step-icon"><i class="fas fa-cogs" aria-hidden="true"></i></span>
+                        <h3>Conversão PHP</h3>
+                        <p>Um evento do S3 aciona o processamento da planilha para o formato BPA.</p>
+                        <span class="bpa-step-service">Fargate ou Lambda customizada</span>
+                    </li>
+                    <li class="bpa-flow-step">
+                        <span class="bpa-step-number">05</span>
+                        <span class="bpa-step-icon"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
+                        <h3>Saída BPA</h3>
+                        <p>O arquivo BPA convertido é armazenado no bucket de saída para download.</p>
+                        <span class="bpa-step-service">Amazon S3 · Output</span>
+                    </li>
+                </ol>
+
+                <div class="bpa-polling-note">
+                    <span class="bpa-polling-icon"><i class="fas fa-sync-alt" aria-hidden="true"></i></span>
+                    <p><strong>Acompanhamento do processamento</strong><br>Enquanto a conversão acontece, o cliente consulta o status via API Gateway. Uma Lambda de checagem responde às solicitações de polling.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bpa-security" aria-labelledby="seguranca-titulo">
+            <div class="container bpa-container">
+                <div class="bpa-section-heading">
+                    <div>
+                        <p class="bpa-section-label">Acesso e infraestrutura</p>
+                        <h2 id="seguranca-titulo">Segurança por responsabilidade</h2>
+                    </div>
+                    <p>Credenciais, permissões e arquivos permanecem separados ao longo do fluxo.</p>
+                </div>
+                <div class="bpa-security-grid">
+                    <article class="bpa-security-item">
+                        <span class="bpa-security-number">01</span>
+                        <h3>Identidade</h3>
+                        <p>Cognito autentica usuários; tokens JWT identificam as chamadas protegidas à API.</p>
+                    </article>
+                    <article class="bpa-security-item">
+                        <span class="bpa-security-number">02</span>
+                        <h3>Permissões</h3>
+                        <p>Políticas IAM e roles concedem acesso específico às funções e aos recursos necessários.</p>
+                    </article>
+                    <article class="bpa-security-item">
+                        <span class="bpa-security-number">03</span>
+                        <h3>Transferência</h3>
+                        <p>URLs pré-assinadas concedem acesso temporário ao S3 sem expor credenciais AWS ao cliente.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bpa-footer">
+        <div class="container bpa-container">
+            <span>Frederico da Silva <span class="bpa-footer-dot">·</span> Desenvolvedor de Software</span>
+            <a href="index.html">Voltar ao portfólio <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+    </footer>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/stylish-portfolio.min.js"></script>
+</body>
+
+</html>
